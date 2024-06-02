@@ -1,0 +1,269 @@
+
+
+
+
+touch FILE
+mkdir DIR
+
+touch file1.txt file2.php
+
+mkdir filder1 filder 2
+
+rm FILE
+
+rm -rf(remove folder) FOLDER <- and it will remove whole dir
+
+
+git init
+create a new repo
+
+git status
+return current information status and what it contains
+
+.git
+
+not use git init in one existed repo... use git status before EVER
+
+
+each commit create a checkpoint into the repo
+
+git add files, folder or . <- all
+
+
+commit has 3 stages
+working dir
+staging area  <- add git add
+repo <- after push
+
+not git status shows me the files added and files not added
+
+It's suepr nice, I can split my commit in 2... instead git add .
+
+-> git add files linked with my task
+-> git add files linked with whole team tasks(like topbar)
+
+commits for example:
+commit 2 = add team member to about page <- shared
+commit 1 = adde branded navbar
+
+git commit commit whole staged changes
+
+git commit -m "my message"
+
+
+git log... log about commits... now I have 2 ommits
+
+C:\projects\git-studies>git log
+commit 19d69b0864b320c01342a03788963a7ec982d845 (HEAD -> master)
+Author: Felipe Oliveira <felipe.wget@gmail.com>
+Date:   Sat Jun 1 23:15:24 2024 +1000
+
+    commit2 text
+
+commit 42db7c97c2ef18cf641bda3222e10934321e2119
+Author: Felipe Oliveira <felipe.wget@gmail.com>
+Date:   Sat Jun 1 23:13:48 2024 +1000
+
+    commit 1: file-with-touch and value
+
+
+-----
+
+[master 7919879] Commit3 with no push: Modification on text-at-commit2
+ 1 file changed, 1 insertion(+)
+
+C:\projects\git-studies>git log
+commit 791987948fe0584d8a06b40f2b9365444c4d8a80 (HEAD -> master)
+Author: Felipe Oliveira <felipe.wget@gmail.com>
+Date:   Sat Jun 1 23:19:25 2024 +1000
+
+    Commit3 with no push: Modification on text-at-commit2
+
+commit 19d69b0864b320c01342a03788963a7ec982d845
+Author: Felipe Oliveira <felipe.wget@gmail.com>
+Date:   Sat Jun 1 23:15:24 2024 +1000
+
+    commit2 text
+
+commit 42db7c97c2ef18cf641bda3222e10934321e2119
+Author: Felipe Oliveira <felipe.wget@gmail.com>
+Date:   Sat Jun 1 23:13:48 2024 +1000
+
+    commit 1: file-with-touch and value
+
+C:\projects\git-studies>
+
+
+hm... I've modified and I've created another commit... git log shows 3 commits... it's cool
+then I can sabe my states rocally withouw to push to dev..
+
+I was pushing to save my progress... I can crate brackpoint on local and do ONE SINGLE PUSH when it's done
+
+
+
+ammend commits <- see about it
+
+see the git docs <- https://git-scm.com/docs there are whole commands here
+
+
+
+
+Atomic commits -> try to focus each commit focused on one single thing
+
+I put small commits into one big commit
+
+writting commits
+use past test like: "Made for something", "Nav bar added for client page..."
+
+
+
+only git commit <- open a terminal at tedit mode... I can update whiting the commit like one TXT, cool
+
+
+git log --oneline <- 
+
+C:\projects\git-studies>git log --oneline
+97539b3 (HEAD -> master) LOOK MY ITEM
+7919879 Commit3 with no push: Modification on text-at-commit2
+19d69b0 commit2 text
+42db7c9 commit 1: file-with-touch and value
+
+
+with oneline I can see the commits easily but it not showing the author or date
+
+not useful but I can abbrev-commit
+
+
+ammending commits -> you made commids and you forgot to include a file or you did one mistake on typo and you and to ammend and redo the previous commit
+
+git commit --ammend <- 
+
+
+
+Ignoring files.gitignore
+
+.FILE NAME.txt <- ignore this NAME
+foldername/ <-everythign at thei filder 
+*.log <- everything with log <- I can use it to ignore the unit tests results on pestPHP
+
+
+
+
+
+every each blocks has a HASH, parent hash and the message... its similar with blockchain... no, iot's a blockchain
+
+
+WHAT is HEAD -> MASTER
+Head is a pointer(cursor) to refer your current location at the repository
+... HEAD aways will point to the last commit you made
+
+
+Head point to master... master point to last commid made already... HEAD will be the next commit
+
+git branch NAME
+GIT SWITCH
+
+
+git switch and checkout do the same thing
+
+
+you need to add before to switch brnaches or the files of another branch can go to wrong branch
+
+
+
+branch -d <- we use it
+
+
+
+
+git diff show the differences between brnaches or commits
+
+
+git diff file/branch1 file/branch2 <- cool but I can see it with the ide
+
+git stash
+
+easy way to stashin g these uncommitteed changes so that we can return to them later with no commits
+
+
+git stash pop is one git stash apply but you apply changes and leave at stash queue, differnet of pop
+
+wqith aopply I can add the changes on a lot of vranches apply, apply, apply, with pop is one time only
+
+
+
+multiple stashes
+
+C:\projects\git-studies>git stash list <- list whole stashes
+stash@{0}: WIP on branch2: 6733438 Edited AMMENDED AND ADDED THE PHP FILE - old one: COMMIT WITH ERROR, NEEDS TO AMMEND
+stash@{1}: WIP on master: 6733438 Edited AMMENDED AND ADDED THE PHP FILE - old one: COMMIT WITH ERROR, NEEDS TO AMMEND
+
+
+C:\projects\git-studies>git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   eeeeee.php
+
+
+C:\projects\git-studies>git stash list
+stash@{0}: WIP on master: 6733438 Edited AMMENDED AND ADDED THE PHP FILE - old one: COMMIT WITH ERROR, NEEDS TO AMMEND
+
+C:\projects\git-studies>git stash apply stash@{0}
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   eeeeee.php
+        new file:   file1.txt
+
+
+C:\projects\git-studies>
+
+
+
+
+git stash clear <-
+git stash drop
+
+
+checkout branch or commit
+
+re--taching branches... <- it can be dangeours,,, if I do it the branch will follow another way <- ask to Keith about it
+
+git checkout HEAD<file>
+
+
+
+git restore
+
+git revert <- it passed normal but I would like to learn more
+
+
+github
+fetch and pulling... 
+github visibility
+readme... 
+workflowq
+-> protection  rules
+forking,... 
+
+resabe and merge
+
+
+
+interactive rebase
+HEAD~0,2,3,4,5,6,7
+
+git tags
+
+
+
+git diff 0.0.1..2.1.0
+
+
+ref logs <-
+
+diff timed 
+
+git checkout main@{0} main@{yesterday}
+
